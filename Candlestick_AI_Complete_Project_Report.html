@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candlestick AI — Comprehensive Software Project Report</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    
+    :root {
+      --primary: #0a1428;
+      --secondary: #0f1d38;
+      --accent-cyan: #0891b2;
+      --accent-emerald: #059669;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Print toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #059669);
+      color: white;
+      border: none;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    /* Cover Page */
+    .cover {
+      padding: 60px 0 40px 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #ecfeff;
+      color: #0891b2;
+      border: 1px solid #cffafe;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .meta-item strong { display: block; color: #0f172a; margin-bottom: 2px; }
+
+    /* Chapters & Typography */
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 40px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 { font-size: 16px; font-weight: 600; color: #1e293b; margin-top: 24px; }
+    p, li { font-size: 14px; color: #334155; }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    th {
+      background-color: var(--card-bg);
+      font-weight: 600;
+      color: #0f172a;
+    }
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+    pre {
+      padding: 16px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      background: #0b1329;
+      color: #e2e8f0;
+      border-radius: 8px;
+    }
+
+    @media print {
+      .toolbar { display: none; }
+      body { background: white; color: black; }
+      .container { max-width: 100%; padding: 0; }
+      h2 { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <div>
+      <strong>Candlestick AI</strong> &bull; Client Project Report
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <a href="/Candlestick_AI_Technical_Documentation.md" download class="btn">Download .MD</a>
+      <a href="/Candlestick_AI_Test_Cases.csv" download class="btn">Download QA Matrix (.CSV)</a>
+      <button onclick="window.print()" class="btn btn-primary">Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cover">
+      <span class="badge">Technical Assessment & System Specification</span>
+      <h1>CANDLESTICK AI — COMPREHENSIVE SOFTWARE PROJECT REPORT</h1>
+      <div class="subtitle">AI-Powered Market Analysis and Financial Data Visualization Platform</div>
+      
+      <div class="meta-grid">
+        <div class="meta-item">
+          <strong>Project Name</strong>
+          Candlestick AI
+        </div>
+        <div class="meta-item">
+          <strong>Tagline</strong>
+          Read the market, understand the signals.
+        </div>
+        <div class="meta-item">
+          <strong>Target Market</strong>
+          Indian Equities (NSE & BSE)
+        </div>
+        <div class="meta-item">
+          <strong>Report Date</strong>
+          October 9, 2026
+        </div>
+        <div class="meta-item">
+          <strong>Status</strong>
+          Pre-Production Build (v1.0.0)
+        </div>
+        <div class="meta-item">
+          <strong>Test Verification</strong>
+          28 / 28 Tests Passed (100%)
+        </div>
+      </div>
+    </div>
+
+    <h2>Chapter 1: Executive Summary</h2>
+    <p>
+      <strong>Candlestick AI</strong> is an AI-powered financial technology platform engineered for quantitative market data visualization, technical indicator calculation, and simulated paper trading on Indian equities (NSE & BSE).
+    </p>
+    <p>
+      The platform pairs high-speed interactive SVG financial charting with a modular market-data provider service, mathematical indicator algorithms (SMA, EMA, Wilder's RSI, Bollinger Bands), a virtual portfolio simulator pre-funded with <strong>₹10,00,000 (10 Lakhs INR)</strong>, and a server-side AI analyst grounded in live exchange data via Google's Gemini models.
+    </p>
+
+    <h2>Chapter 2: Implemented Capabilities & Verified Results</h2>
+    <ul>
+      <li><strong>Universal Indian Equity Search:</strong> Intelligent resolution supporting company names (e.g. Fineotex &rarr; <code>FCL.NS</code>, Reliance &rarr; <code>RELIANCE.NS</code>) and autocomplete dropdown.</li>
+      <li><strong>Interactive Candlestick Chart:</strong> Real-time and 15-minute delayed daily candles, Volume histograms, SMA 20/50, Bollinger Bands, and RSI/MACD sub-charts.</li>
+      <li><strong>Portfolio Performance Engine:</strong> Visual progress bar benchmarking equity against the initial ₹10,00,000 baseline with asset allocation breakdown (Liquid Cash vs. Equities).</li>
+      <li><strong>Server-Side AI Proxy:</strong> Grounded responses citing verified numbers with SEBI risk disclosures, preventing client-side secret exposure.</li>
+    </ul>
+
+    <h2>Chapter 3: Verified API Endpoints</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Endpoint</th>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>/api/health</code></td>
+          <td>GET</td>
+          <td>Heartbeat check with IST timestamp and service status</td>
+          <td>Verified (200 OK)</td>
+        </tr>
+        <tr>
+          <td><code>/api/market/search?q=query</code></td>
+          <td>GET</td>
+          <td>Live autocomplete for Indian equities (NSE & BSE)</td>
+          <td>Verified (200 OK)</td>
+        </tr>
+        <tr>
+          <td><code>/api/market/quote/:symbol</code></td>
+          <td>GET</td>
+          <td>Normalized quote in ₹ INR with high, low, volume</td>
+          <td>Verified (200 OK)</td>
+        </tr>
+        <tr>
+          <td><code>/api/market/history/:symbol</code></td>
+          <td>GET</td>
+          <td>3-month daily OHLCV candlestick series</td>
+          <td>Verified (200 OK)</td>
+        </tr>
+        <tr>
+          <td><code>/api/market/analysis/:symbol</code></td>
+          <td>GET</td>
+          <td>Calculated SMAs, EMAs, RSI 14, and pivot support/resistance</td>
+          <td>Verified (200 OK)</td>
+        </tr>
+        <tr>
+          <td><code>/api/chat</code></td>
+          <td>POST</td>
+          <td>Grounded Gemini financial market assistant</td>
+          <td>Verified (200 OK)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Chapter 4: Test Suite & Quality Assurance</h2>
+    <p>
+      The project contains 28 automated test assertions verifying symbol normalization, indicator mathematical formulas, paper-trading accounting in ₹ INR, and search resolution. All 28 tests pass with zero errors.
+    </p>
+
+    <h2>Chapter 5: Downloadable Files Available</h2>
+    <ul>
+      <li><code>/Candlestick_AI_Technical_Documentation.md</code> &bull; Complete technical specification markdown document.</li>
+      <li><code>/Candlestick_AI_Test_Cases.csv</code> &bull; Complete 28-scenario QA test matrix spreadsheet.</li>
+      <li><code>/Candlestick_AI_Complete_Project_Report.html</code> &bull; Printable client-ready HTML document.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

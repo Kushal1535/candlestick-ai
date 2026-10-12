@@ -1,0 +1,6 @@
+{
+  "name": "TradeWise AI",
+  "description": "Beginner-friendly AI Trading Education Chatbot with technical indicators, interactive sample charts, and virtual paper trading.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
